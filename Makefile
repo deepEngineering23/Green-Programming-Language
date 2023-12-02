@@ -7,7 +7,7 @@ LINKER_OPT       = -L/usr/lib -lstdc++
 
 BUILD_LIST+=lexer
 
-all: $(BUILD_LIST)
+#all: $(BUILD_LIST)
 
 lexer: lexer.cpp lexertk.hpp
 	$(COMPILER) $(OPTIONS) lexer lexer.cpp $(LINKER_OPT)

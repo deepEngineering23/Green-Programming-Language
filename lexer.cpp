@@ -7,7 +7,7 @@
 
 int main()
 {
-   std::string expression = "(sin(x/pi)cos(2y) + 1) == (sin(x / pi) * cos(2 * y) + 1)";
+   std::string expression = "(cos(x/pi)cos(2y) + 1) == (sin(x / pi) * cos(2 * y) + 1)";
 
    lexertk::generator generator;
 
