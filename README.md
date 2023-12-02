@@ -20,4 +20,4 @@ Functions are allowed , any expression is allowed , anything else not allowed (c
 step 1) make
 step 2) ./lexer ./path/of/file.gr (extension not specified yet in code)
 
-# A binary lexer is alredy present in repo 
+# A binary lexer is already present in repo 
