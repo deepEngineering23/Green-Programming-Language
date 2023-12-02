@@ -1,0 +1,12 @@
+function main(){
+
+    long z = 1;
+
+    for(int x=0;x<10;x++){
+
+        for(int y=0;y<x;y++){
+
+            print(x+y+' ');
+        }
+    }
+}
