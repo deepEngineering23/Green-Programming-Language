@@ -1,0 +1,6 @@
+function abc(){
+    int c = sin(x);
+    char *f = ['a','b'];
+
+    print(f);
+}
