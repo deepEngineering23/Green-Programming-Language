@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
 
 #include "lexertk.hpp"
 
@@ -109,8 +110,6 @@ bool parse_function_definition(std::string& func_def, function_definition& fd)
 }
 void parsingBody(string expression)
 {
-   //std::string expression = "{a+(b-[c*(e/{f+g}-h)*i]%[j+(k-{l*m}/n)+o]-p)*q}";
-
    lexertk::generator generator;
 
    if (!generator.process(expression))
@@ -133,9 +132,41 @@ void parsingBody(string expression)
    std::cout << "*********************" << std::endl;
 }
 
-void fileString()
-{
-   const std::string f =
+char readCharIgnoringEscapeSequences(ifstream& file) {
+  char c = file.get();
+
+  if (c == '\\') {
+  
+    char nextChar = file.peek();
+    if (nextChar == '\\' || nextChar == '"' || nextChar == '\'' || nextChar == 'n' || nextChar == 'r' || nextChar == 't') {
+     
+      c = file.get();
+    }
+  }
+
+  return c;
+}
+
+void fileString(char * filename)
+{  
+
+   std::ifstream file(filename);
+   string f;
+
+   if (file.is_open()) {
+
+      char c;
+      while ((c = readCharIgnoringEscapeSequences(file)) != EOF) {
+         f += c;
+      }
+
+      file.close();
+   } else {
+      std::cerr << "Error: Could not open file" << std::endl;
+      return ;
+   }
+
+   /*const std::string f1 =
       "function foo0( ) { if (x < '}}}') { x+y; x+=1;} else {x;} }          "
       "function foo1(x) { if (x < '}}}') { x+y; x+=1;} else {x;} }          "
       "function foo2(x,y) { if (x < '}}}') { x+y; x+=1;} else {x;} }        "
@@ -153,7 +184,7 @@ void fileString()
       "function foow(x,y,z)   {  } "
       "function foou(x,y,z,w) {  } "
       "function main() { int c=0;c=c+1;print(c);}"
-      "{xxx + yyy + zzz {k / l} }  ";
+      "{xxx + yyy + zzz {k / l} }  ";*/
 
    function_definition fd;
 
@@ -197,10 +228,14 @@ void fileString()
 }
 
 
-int main()
+int main(int argc, char *argv[])
 {
-   
-   fileString();
+   int n = argc;
+   char *filename = argv[1];
+
+   cout<<n<<"\n";
+
+   fileString(filename);
 
    return 0;
 }

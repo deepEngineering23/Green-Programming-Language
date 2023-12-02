@@ -1,0 +1,13 @@
+
+
+function foo10(x,y,z,w) { if (x < '\\'}\\'}\\'}\\'') { x+y; w+=1;} else {x; w;} } 
+
+function main() { int c=0;c=c+1;
+
+print(c);} 
+
+function foo2(){
+
+    int c = sin(cos(d));
+
+}
