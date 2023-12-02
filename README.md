@@ -12,11 +12,11 @@ Data Parsing and Validation: LexerTk can be employed for parsing and validating 
 
 Domain-Specific Language Implementations: LexerTk can be utilized for implementing domain-specific languages (DSLs) by providing a foundation for lexical analysis.
 
-# Rules of Language that can be parsed correctly
+# Rules of Language that can be lexed correctly
 
 Functions are allowed , any expression is allowed , anything else not allowed (classes etc)
 
-# How to run the parser
+# How to run the lexer
 step 1) make
 
 step 2) ./lexer ./path/of/file.gr (extension not specified yet in code)
